@@ -45,6 +45,8 @@ jobs:
         node-version: '22'
     - name: Project checks and build
       run: python3 /Users/Shared/macmini-ci/bin/project-ci.py
+      env:
+        ANTEATER_API_KEY: ${{ secrets.ANTEATER_API_KEY }}
     - name: Collect CI outputs
       if: ${{ always() && env.MACMINI_FRESH == 'true' }}
       run: python3 /Users/Shared/macmini-ci/bin/collect-artifacts.py
